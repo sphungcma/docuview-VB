@@ -3,11 +3,18 @@
 <%@ Register Assembly="GdPicture.NET.14.WEB.DocuVieware" Namespace="GdPicture14.WEB" TagPrefix="cc1" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    
-        <cc1:DocuVieware ID="DocuVieware1" runat="server"
-            Height="800px"
-            Width="1000px" />
-    
+    <div>
+        <label>Document ID: </label>
+        <input type="text" name="documentId" id="documentId" value="" runat="server" />
+        <input type="submit" name="submit" value="submit" />
+    </div>
+    <br />
+
+
+    <cc1:DocuVieware ID="DocuVieware1" runat="server"
+        Height="800px"
+        Width="1000px" />
+
 
     <script>
         function RegisterOnNewDocumentLoadedOnDocuViewareAPIReady() {

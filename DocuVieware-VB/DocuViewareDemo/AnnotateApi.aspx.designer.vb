@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AnnotateApi
 
     '''<summary>
+    '''documentId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents documentId As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
     '''DocuVieware1 control.
     '''</summary>
     '''<remarks>

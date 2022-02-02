@@ -12,6 +12,9 @@ namespace AspNetWebApi.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly string _fileStoragePath = @"C:\PPStorage\TestDoc";
+        //private readonly string _fileStoragePath = HttpRuntime.AppDomainAppPath;
+
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -22,8 +25,18 @@ namespace AspNetWebApi.Controllers
         [Route("api/getimage")]
         public string GetImage()
         {
-            //var filePath = "C:\\Code.DocuVieware\\TestDoc\\JPEGFile.jpg";
-            var filePath = HttpRuntime.AppDomainAppPath + "documents\\JPEGFile.jpg";
+            var filePath = _fileStoragePath + "\\14122.jpg";
+
+            byte[] data = File.ReadAllBytes(filePath);
+            var result = Convert.ToBase64String(data);
+            return result;
+        }
+
+        [HttpGet]
+        [Route("api/getimage/{documentId}")]
+        public string GetImage(int documentId)
+        {
+            var filePath = _fileStoragePath + "\\" + documentId.ToString() + ".jpg";
 
             byte[] data = File.ReadAllBytes(filePath);
             var result = Convert.ToBase64String(data);
